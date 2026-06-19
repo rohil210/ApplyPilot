@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApplyPilot</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">PERSONAL JOB-SEARCH ORGANIZER</p>
+          <h1>ApplyPilot</h1>
+        </div>
+        <span class="privacy-badge">Local only</span>
+      </header>
+
+      <p class="intro">Organize job posts currently visible in your active LinkedIn tab. Extraction runs only when you click below.</p>
+
+      <div class="actions">
+        <button id="extractButton" class="primary" type="button">Extract Visible Leads</button>
+        <button id="downloadButton" type="button">Download CSV</button>
+        <button id="clearButton" class="danger" type="button">Clear Stored Leads</button>
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <section class="summary" aria-label="Extraction summary">
+        <article><strong id="visibleCount">0</strong><span>Visible posts found</span></article>
+        <article><strong id="validCount">0</strong><span>Valid job leads</span></article>
+        <article><strong id="duplicateCount">0</strong><span>Duplicates skipped</span></article>
+        <article><strong id="storedCount">0</strong><span>Stored leads</span></article>
+      </section>
+
+      <section class="preview">
+        <div class="section-heading">
+          <h2>Lead preview</h2>
+          <span id="previewCaption">Stored locally</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>Recruiter</th>
+                <th>Company</th>
+                <th>Job title</th>
+                <th>Location</th>
+                <th>Skills</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="leadRows"></tbody>
+          </table>
+          <p id="emptyState" class="empty-state">No leads stored yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="scorer.js"></script>
+    <script src="parser.js"></script>
+    <script src="storage.js"></script>
+    <script src="csv_exporter.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
