@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ApplyPilot",
+  "version": "0.1.0",
+  "description": "Turn visible LinkedIn job posts into private, structured job-search leads.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "action": {
+    "default_title": "ApplyPilot",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
